@@ -1,0 +1,92 @@
+/* Paleta de Cores (adaptada do seu original) */
+:root {
+    --cor-fundo: #f8f9fa; /* Um cinza bem claro */
+    --cor-texto: #212529;
+    --cor-primaria: #27548A; /* Azul do seu tema */
+    --cor-secundaria: #183B4E; /* Azul escuro do seu tema */
+    --cor-destaque: #DDA853; /* Amarelo/Dourado do seu tema */
+    --cor-branca: #FFFFFF;
+    --cor-sucesso: #198754; /* Verde do Bootstrap para respostas corretas */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+}
+
+/* --- Cabeçalho --- */
+.header-quiz {
+    background-color: var(--cor-secundaria);
+    color: var(--cor-branca);
+    border-bottom: 5px solid var(--cor-destaque);
+}
+
+.header-title {
+    font-family: 'Fredoka One', cursive; /* Fonte mais divertida para o título */
+    font-size: 2.8rem;
+    color: var(--cor-branca);
+}
+
+/* --- Card de Pergunta --- */
+.question-card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden; /* Garante que os cantos arredondados funcionem */
+    transition: transform 0.2s ease-in-out;
+}
+
+.question-card:hover {
+    transform: translateY(-5px);
+}
+
+.question-card .card-header {
+    background-color: var(--cor-primaria);
+    color: var(--cor-branca);
+    padding: 1rem 1.5rem;
+}
+
+.question-title {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.question-text {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--cor-secundaria);
+    margin-bottom: 1.5rem;
+}
+
+/* --- Botões de Alternativa --- */
+.btn-option {
+    background-color: var(--cor-branca);
+    color: var(--cor-primaria);
+    border: 2px solid var(--cor-primaria);
+    padding: 0.75rem;
+    font-weight: 600;
+    text-align: left;
+    transition: all 0.3s ease;
+}
+
+.btn-option:hover {
+    background-color: var(--cor-destaque);
+    color: var(--cor-branca);
+    border-color: var(--cor-destaque);
+}
+
+/* --- Bloco da Resposta Correta --- */
+.correct-answer {
+    background-color: #e8f5e9; /* Um verde bem claro */
+    border-left: 5px solid var(--cor-sucesso);
+    color: #2e7d32;
+    font-size: 1rem;
+}
+
+/* --- Rodapé --- */
+.footer-quiz {
+    background-color: var(--cor-secundaria);
+    color: var(--cor-branca);
+    font-size: 0.9em;
+}
