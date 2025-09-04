@@ -1,119 +1,198 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>English Review Quiz</title>
-    <link rel="shortcut icon" type="imagex/png" href="images/quiz-icon.png"> <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>The English Escape Room</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Fredoka+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Creepster&display=swap" rel="stylesheet">
     
+    <!-- CSS Customizado -->
     <link rel="stylesheet" href="css/global.css">
 </head>
 <body>
-    <header class="header-quiz text-center py-4">
-        <div class="container">
-            <h1 class="header-title">English Review Quiz! 🚀</h1>
-            <p class="lead">Let's review what we've learned last semester. Good luck!</p>
-        </div>
+    <header class="text-center py-4">
+        <h1 class="header-title">The English Escape Room</h1>
+        <p class="lead">Solve the challenges to unlock the next room and escape!</p>
     </header>
 
-    <main class="container my-5">
-        
-        <div class="card question-card shadow-sm mb-4">
-            <div class="card-header">
-                <h2 class="question-title">Question 1: Grammar</h2>
-            </div>
-            <div class="card-body">
-                <p class="card-text question-text">Which sentence is grammatically correct?</p>
-                
-                <div class="d-grid gap-2">
-                    <button class="btn btn-option" type="button" data-bs-toggle="collapse" data-bs-target="#answer1" aria-expanded="false" aria-controls="answer1">
-                        She don't like pizza.
-                    </button>
-                    <button class="btn btn-option" type="button" data-bs-toggle="collapse" data-bs-target="#answer1" aria-expanded="false" aria-controls="answer1">
-                        He go to school every day.
-                    </button>
-                    <button class="btn btn-option" type="button" data-bs-toggle="collapse" data-bs-target="#answer1" aria-expanded="false" aria-controls="answer1">
-                        They are playing soccer now.
-                    </button>
-                </div>
-                
-                <div class="collapse mt-3" id="answer1">
-                    <div class="card card-body correct-answer">
-                        <strong>Correct Answer:</strong> "They are playing soccer now." <br>
-                        <strong>Explanation:</strong> This sentence uses the Present Continuous tense correctly for an action happening now. The other options have subject-verb agreement errors.
+    <main class="container mt-4">
+        <div class="escape-room-container">
+
+            <!-- Sala 1: Grammar Gate -->
+            <div id="room1" class="room active">
+                <div class="room-content">
+                    <div class="room-header">
+                        <span class="room-icon">🔑</span>
+                        <h2>Room 1: The Grammar Gate</h2>
                     </div>
+                    <p class="question-text">To unlock the next door, you must choose the correct sentence. The walls are closing in!</p>
+                    
+                    <form>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q1" id="q1_opt1" value="incorrect">
+                            <label class="form-check-label" for="q1_opt1">
+                                He play soccer very well.
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q1" id="q1_opt2" value="correct">
+                            <label class="form-check-label" for="q1_opt2">
+                                She is studying for the test.
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q1" id="q1_opt3" value="incorrect">
+                            <label class="form-check-label" for="q1_opt3">
+                                They is happy.
+                            </label>
+                        </div>
+                    </form>
+
+                    <button class="btn btn-unlock mt-4" onclick="checkAnswer(1)">Unlock Door</button>
+                    <div id="feedback1" class="feedback mt-3"></div>
                 </div>
             </div>
-        </div>
 
-        <div class="card question-card shadow-sm mb-4">
-            <div class="card-header">
-                <h2 class="question-title">Question 2: Vocabulary</h2>
-            </div>
-            <div class="card-body">
-                <p class="card-text question-text">What is the synonym of "happy"?</p>
-                
-                <div class="d-grid gap-2">
-                    <button class="btn btn-option" type="button" data-bs-toggle="collapse" data-bs-target="#answer2" aria-expanded="false" aria-controls="answer2">
-                        Sad
-                    </button>
-                    <button class="btn btn-option" type="button" data-bs-toggle="collapse" data-bs-target="#answer2" aria-expanded="false" aria-controls="answer2">
-                        Joyful
-                    </button>
-                     <button class="btn btn-option" type="button" data-bs-toggle="collapse" data-bs-target="#answer2" aria-expanded="false" aria-controls="answer2">
-                        Angry
-                    </button>
-                </div>
-
-                <div class="collapse mt-3" id="answer2">
-                    <div class="card card-body correct-answer">
-                        <strong>Correct Answer:</strong> "Joyful." <br>
-                        <strong>Explanation:</strong> "Joyful" means feeling, expressing, or causing great pleasure and happiness.
+            <!-- Sala 2: Vocabulary Vault -->
+            <div id="room2" class="room d-none">
+                <div class="room-content">
+                    <div class="room-header">
+                        <span class="room-icon">🗝️</span>
+                        <h2>Room 2: The Vocabulary Vault</h2>
                     </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="card question-card shadow-sm mb-4">
-            <div class="card-header">
-                <h2 class="question-title">Question 3: Prepositions</h2>
-            </div>
-            <div class="card-body">
-                <p class="card-text question-text">My birthday is ___ October.</p>
-                
-                <div class="d-grid gap-2">
-                    <button class="btn btn-option" type="button" data-bs-toggle="collapse" data-bs-target="#answer3" aria-expanded="false" aria-controls="answer3">
-                        in
-                    </button>
-                    <button class="btn btn-option" type="button" data-bs-toggle="collapse" data-bs-target="#answer3" aria-expanded="false" aria-controls="answer3">
-                        on
-                    </button>
-                     <button class="btn btn-option" type="button" data-bs-toggle="collapse" data-bs-target="#answer3" aria-expanded="false" aria-controls="answer3">
-                        at
-                    </button>
-                </div>
+                    <p class="question-text">A secret code is needed. What is the opposite of "ancient"?</p>
+                    
+                    <form>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q2" id="q2_opt1" value="correct">
+                            <label class="form-check-label" for="q2_opt1">
+                                Modern
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q2" id="q2_opt2" value="incorrect">
+                            <label class="form-check-label" for="q2_opt2">
+                                Old
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q2" id="q2_opt3" value="incorrect">
+                            <label class="form-check-label" for="q2_opt3">
+                                Historical
+                            </label>
+                        </div>
+                    </form>
 
-                <div class="collapse mt-3" id="answer3">
-                    <div class="card card-body correct-answer">
-                        <strong>Correct Answer:</strong> "in." <br>
-                        <strong>Explanation:</strong> We use the preposition "in" for months, years, and seasons.
+                    <button class="btn btn-unlock mt-4" onclick="checkAnswer(2)">Crack the Code</button>
+                    <div id="feedback2" class="feedback mt-3"></div>
+                </div>
+            </div>
+
+            <!-- Sala 3: Preposition Passage -->
+            <div id="room3" class="room d-none">
+                 <div class="room-content">
+                    <div class="room-header">
+                        <span class="room-icon">📜</span>
+                        <h2>Room 3: The Preposition Passage</h2>
                     </div>
+                    <p class="question-text">The final step! Choose the correct preposition to find your way out: "The book is ___ the table."</p>
+                    
+                    <form>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q3" id="q3_opt1" value="incorrect">
+                            <label class="form-check-label" for="q3_opt1">
+                                in
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q3" id="q3_opt2" value="incorrect">
+                            <label class="form-check-label" for="q3_opt2">
+                                at
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q3" id="q3_opt3" value="correct">
+                            <label class="form-check-label" for="q3_opt3">
+                                on
+                            </label>
+                        </div>
+                    </form>
+
+                    <button class="btn btn-unlock mt-4" onclick="checkAnswer(3)">Escape Now!</button>
+                    <div id="feedback3" class="feedback mt-3"></div>
                 </div>
             </div>
-        </div>
 
+            <!-- Tela de Sucesso -->
+            <div id="escaped" class="room d-none">
+                <div class="room-content text-center">
+                    <div class="room-header justify-content-center">
+                        <span class="room-icon">🎉</span>
+                        <h2>Congratulations!</h2>
+                    </div>
+                    <p class="question-text fs-4">You have successfully escaped the rooms by proving your English knowledge!</p>
+                    <img src="https://placehold.co/400x300/e0e0e0/333?text=You+Escaped!" class="img-fluid rounded mt-3" alt="Imagem de comemoração">
+                </div>
+            </div>
+
+        </div>
     </main>
 
-    <footer class="footer-quiz mt-5 py-3">
-        <div class="text-center">
-            English Quiz Activity © 2025 | Created for our class.
-        </div>
+    <footer class="text-center py-3 mt-5">
+        <p class="mb-0">English Escape Room © 2025</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+    <!-- Lógica do Jogo -->
+    <script>
+        function checkAnswer(roomNumber) {
+            const form = document.querySelector(`#room${roomNumber} form`);
+            const feedback = document.getElementById(`feedback${roomNumber}`);
+            const selectedOption = form.querySelector(`input[name="q${roomNumber}"]:checked`);
+
+            if (!selectedOption) {
+                feedback.textContent = 'You must select an answer to proceed!';
+                feedback.className = 'feedback mt-3 alert alert-warning';
+                return;
+            }
+
+            const isCorrect = selectedOption.value === 'correct';
+
+            if (isCorrect) {
+                feedback.textContent = 'Correct! The door creaks open...';
+                feedback.className = 'feedback mt-3 alert alert-success';
+
+                // Delay para o usuário ler o feedback antes de avançar
+                setTimeout(() => {
+                    const currentRoom = document.getElementById(`room${roomNumber}`);
+                    const nextRoomId = (roomNumber === 3) ? 'escaped' : `room${roomNumber + 1}`;
+                    const nextRoom = document.getElementById(nextRoomId);
+
+                    currentRoom.classList.remove('active');
+                    // Espera a animação de fade-out terminar para trocar as salas
+                    setTimeout(() => {
+                        currentRoom.classList.add('d-none');
+                        nextRoom.classList.remove('d-none');
+                        // Força um reflow para a animação de fade-in funcionar
+                        setTimeout(() => nextRoom.classList.add('active'), 20);
+                    }, 500);
+
+                }, 1500);
+
+            } else {
+                feedback.textContent = 'Incorrect. The lock remains shut. Try again!';
+                feedback.className = 'feedback mt-3 alert alert-danger';
+            }
+        }
+    </script>
 </body>
 </html>
