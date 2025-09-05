@@ -26,6 +26,12 @@ h1, h2, h3 {
     letter-spacing: 2px;
 }
 
+.sub-title {
+     font-family: 'Creepster', cursive;
+    font-size: 1.6rem;
+    letter-spacing: 2px;
+}
+
 /* Container Principal */
 .escape-room-container {
     max-width: 700px;
@@ -60,9 +66,23 @@ h1, h2, h3 {
     font-size: 2rem;
 }
 
+/* Bloco de cada pergunta dentro da sala */
+.question-block {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px dashed var(--accent-color);
+}
+
+.question-block:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
 .question-text {
     font-size: 1.1rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
 }
 
 /* Estilo das Alternativas (Form) */
@@ -119,3 +139,4 @@ h1, h2, h3 {
 footer {
     color: #888;
 }
+

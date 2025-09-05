@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The English Escape Room</title>
+    <title>Escape Room</title>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -19,114 +19,204 @@
 <body>
     <header class="text-center py-4">
         <h1 class="header-title">The English Escape Room</h1>
-        <p class="lead">Solve the challenges to unlock the next room and escape!</p>
+        <h1 class="sub-title">A challenging review in English</h1>
+        <p class="lead">Solve all the challenges in a room to unlock the next and escape!</p>
     </header>
 
-    <main class="container mt-4">
+<main class="container mt-4">
         <div class="escape-room-container">
 
-            <!-- Sala 1: Grammar Gate -->
-            <div id="room1" class="room active">
+            <!-- Tela Inicial -->
+            <div id="startScreen" class="room active">
+                <div class="room-content text-center">
+                    <div class="room-header justify-content-center">
+                        <span class="room-icon">🚪</span>
+                        <h2>Welcome, challenger!</h2>
+                    </div>
+                    <p class="question-text fs-5">Behind this door lies a series of challenges to test your English skills. Are you ready to begin?</p>
+                    <button class="btn btn-unlock mt-3" onclick="startGame()">Start Game</button>
+                </div>
+            </div>
+
+            <!-- Sala 1: Simple Present Portal -->
+            <div id="room1" class="room d-none">
                 <div class="room-content">
                     <div class="room-header">
                         <span class="room-icon">🔑</span>
-                        <h2>Room 1: The Grammar Gate</h2>
+                        <h2>Room 1: The Simple Present Portal</h2>
                     </div>
-                    <p class="question-text">To unlock the next door, you must choose the correct sentence. The walls are closing in!</p>
-                    
                     <form>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q1" id="q1_opt1" value="incorrect">
-                            <label class="form-check-label" for="q1_opt1">
-                                He play soccer very well.
-                            </label>
+                        <div class="question-block">
+                            <p class="question-text">1. She ___ to school every day.</p>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q1_1" value="go"><label class="form-check-label">go</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q1_1" value="goes"><label class="form-check-label">goes</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q1_1" value="going"><label class="form-check-label">going</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q1_1" value="gone"><label class="form-check-label">gone</label></div>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q1" id="q1_opt2" value="correct">
-                            <label class="form-check-label" for="q1_opt2">
-                                She is studying for the test.
-                            </label>
+                        <div class="question-block">
+                            <p class="question-text">2. They ___ football on Sundays.</p>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q1_2" value="play"><label class="form-check-label">play</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q1_2" value="plays"><label class="form-check-label">plays</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q1_2" value="playing"><label class="form-check-label">playing</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q1_2" value="played"><label class="form-check-label">played</label></div>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q1" id="q1_opt3" value="incorrect">
-                            <label class="form-check-label" for="q1_opt3">
-                                They is happy.
-                            </label>
+                        <div class="question-block">
+                            <p class="question-text">3. He ___ like pizza.</p>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q1_3" value="doesn’t"><label class="form-check-label">doesn’t</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q1_3" value="don’t"><label class="form-check-label">don’t</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q1_3" value="isn’t"><label class="form-check-label">isn’t</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q1_3" value="didn’t"><label class="form-check-label">didn’t</label></div>
                         </div>
                     </form>
-
-                    <button class="btn btn-unlock mt-4" onclick="checkAnswer(1)">Unlock Door</button>
+                    <button class="btn btn-unlock mt-4" onclick="checkAnswers(1)">Unlock Door</button>
                     <div id="feedback1" class="feedback mt-3"></div>
                 </div>
             </div>
 
-            <!-- Sala 2: Vocabulary Vault -->
+            <!-- Sala 2: Present Continuous Chamber -->
             <div id="room2" class="room d-none">
                 <div class="room-content">
                     <div class="room-header">
-                        <span class="room-icon">🗝️</span>
-                        <h2>Room 2: The Vocabulary Vault</h2>
+                        <span class="room-icon">⏳</span>
+                        <h2>Room 2: The Present Continuous Chamber</h2>
                     </div>
-                    <p class="question-text">A secret code is needed. What is the opposite of "ancient"?</p>
-                    
-                    <form>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q2" id="q2_opt1" value="correct">
-                            <label class="form-check-label" for="q2_opt1">
-                                Modern
-                            </label>
+                     <form>
+                        <div class="question-block">
+                            <p class="question-text">1. She ___ TV at the moment.</p>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q2_1" value="watch"><label class="form-check-label">watch</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q2_1" value="is watching"><label class="form-check-label">is watching</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q2_1" value="watches"><label class="form-check-label">watches</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q2_1" value="watched"><label class="form-check-label">watched</label></div>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q2" id="q2_opt2" value="incorrect">
-                            <label class="form-check-label" for="q2_opt2">
-                                Old
-                            </label>
+                        <div class="question-block">
+                            <p class="question-text">2. They ___ in the park right now.</p>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q2_2" value="run"><label class="form-check-label">run</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q2_2" value="are running"><label class="form-check-label">are running</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q2_2" value="runs"><label class="form-check-label">runs</label></div>
+                             <div class="form-check"><input class="form-check-input" type="radio" name="q2_2" value="running"><label class="form-check-label">running</label></div>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q2" id="q2_opt3" value="incorrect">
-                            <label class="form-check-label" for="q2_opt3">
-                                Historical
-                            </label>
+                        <div class="question-block">
+                            <p class="question-text">3. I ___ to music now.</p>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q2_3" value="listen"><label class="form-check-label">listen</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q2_3" value="am listening"><label class="form-check-label">am listening</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q2_3" value="listening"><label class="form-check-label">listening</label></div>
+                             <div class="form-check"><input class="form-check-input" type="radio" name="q2_3" value="listens"><label class="form-check-label">listens</label></div>
                         </div>
                     </form>
-
-                    <button class="btn btn-unlock mt-4" onclick="checkAnswer(2)">Crack the Code</button>
+                    <button class="btn btn-unlock mt-4" onclick="checkAnswers(2)">Open Chamber</button>
                     <div id="feedback2" class="feedback mt-3"></div>
                 </div>
             </div>
-
-            <!-- Sala 3: Preposition Passage -->
+            
+            <!-- Sala 3: Simple Past Crypt -->
             <div id="room3" class="room d-none">
                  <div class="room-content">
                     <div class="room-header">
                         <span class="room-icon">📜</span>
-                        <h2>Room 3: The Preposition Passage</h2>
+                        <h2>Room 3: The Simple Past Crypt</h2>
                     </div>
-                    <p class="question-text">The final step! Choose the correct preposition to find your way out: "The book is ___ the table."</p>
-                    
                     <form>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q3" id="q3_opt1" value="incorrect">
-                            <label class="form-check-label" for="q3_opt1">
-                                in
-                            </label>
+                        <div class="question-block">
+                            <p class="question-text">1. She ___ to the party last night.</p>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q3_1" value="goes"><label class="form-check-label">goes</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q3_1" value="went"><label class="form-check-label">went</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q3_1" value="going"><label class="form-check-label">going</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q3_1" value="gone"><label class="form-check-label">gone</label></div>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q3" id="q3_opt2" value="incorrect">
-                            <label class="form-check-label" for="q3_opt2">
-                                at
-                            </label>
+                        <div class="question-block">
+                            <p class="question-text">2. They ___ football yesterday.</p>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q3_2" value="play"><label class="form-check-label">play</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q3_2" value="plays"><label class="form-check-label">plays</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q3_2" value="played"><label class="form-check-label">played</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q3_2" value="playing"><label class="form-check-label">playing</label></div>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q3" id="q3_opt3" value="correct">
-                            <label class="form-check-label" for="q3_opt3">
-                                on
-                            </label>
+                         <div class="question-block">
+                            <p class="question-text">3. What time ___ you wake up yesterday?</p>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q3_3" value="do"><label class="form-check-label">do</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q3_3" value="does"><label class="form-check-label">does</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q3_3" value="did"><label class="form-check-label">did</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q3_3" value="are"><label class="form-check-label">are</label></div>
                         </div>
                     </form>
-
-                    <button class="btn btn-unlock mt-4" onclick="checkAnswer(3)">Escape Now!</button>
+                    <button class="btn btn-unlock mt-4" onclick="checkAnswers(3)">Decipher the Scroll</button>
                     <div id="feedback3" class="feedback mt-3"></div>
+                </div>
+            </div>
+
+             <!-- Sala 4: Past Continuous Conundrum -->
+            <div id="room4" class="room d-none">
+                 <div class="room-content">
+                    <div class="room-header">
+                        <span class="room-icon">🕰️</span>
+                        <h2>Room 4: The Past Continuous Conundrum</h2>
+                    </div>
+                    <form>
+                        <div class="question-block">
+                            <p class="question-text">1. She ___ when the phone rang.</p>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q4_1" value="was studying"><label class="form-check-label">was studying</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q4_1" value="studied"><label class="form-check-label">studied</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q4_1" value="is studying"><label class="form-check-label">is studying</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q4_1" value="studies"><label class="form-check-label">studies</label></div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text">2. They ___ football when it started to rain.</p>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q4_2" value="played"><label class="form-check-label">played</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q4_2" value="were playing"><label class="form-check-label">were playing</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q4_2" value="play"><label class="form-check-label">play</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q4_2" value="playing"><label class="form-check-label">playing</label></div>
+                        </div>
+                         <div class="question-block">
+                            <p class="question-text">3. I ___ TV at 8 pm yesterday.</p>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q4_3" value="watch"><label class="form-check-label">watch</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q4_3" value="watching"><label class="form-check-label">watching</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q4_3" value="was watching"><label class="form-check-label">was watching</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q4_3" value="watched"><label class="form-check-label">watched</label></div>
+                        </div>
+                    </form>
+                    <button class="btn btn-unlock mt-4" onclick="checkAnswers(4)">Solve the Conundrum</button>
+                    <div id="feedback4" class="feedback mt-3"></div>
+                </div>
+            </div>
+
+            <!-- Sala 5: Technology Vault -->
+            <div id="room5" class="room d-none">
+                 <div class="room-content">
+                    <div class="room-header">
+                        <span class="room-icon">💻</span>
+                        <h2>Room 5: The Technology Vault</h2>
+                    </div>
+                    <form>
+                        <div class="question-block">
+                            <p class="question-text">1. The physical parts of a computer are called ___.</p>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q5_1" value="software"><label class="form-check-label">software</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q5_1" value="hardware"><label class="form-check-label">hardware</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q5_1" value="program"><label class="form-check-label">program</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q5_1" value="file"><label class="form-check-label">file</label></div>
+                        </div>
+                         <div class="question-block">
+                            <p class="question-text">2. The opposite of "upload" is ___.</p>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q5_2" value="download"><label class="form-check-label">download</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q5_2" value="install"><label class="form-check-label">install</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q5_2" value="save"><label class="form-check-label">save</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q5_2" value="copy"><label class="form-check-label">copy</label></div>
+                        </div>
+                         <div class="question-block">
+                            <p class="question-text">3. To protect your online accounts, you should create a strong ___.</p>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q5_3" value="link"><label class="form-check-label">link</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q5_3" value="file"><label class="form-check-label">file</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q5_3" value="password"><label class="form-check-label">password</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q5_3" value="software"><label class="form-check-label">software</label></div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text">4. To enter your account, you need to ___ with your username and password.</p>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q5_4" value="log out"><label class="form-check-label">log out</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q5_4" value="log in"><label class="form-check-label">log in</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q5_4" value="sign out"><label class="form-check-label">sign out</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q5_4" value="shut down"><label class="form-check-label">shut down</label></div>
+                        </div>
+                    </form>
+                    <button class="btn btn-unlock mt-4" onclick="checkAnswers(5)">Escape Now!</button>
+                    <div id="feedback5" class="feedback mt-3"></div>
                 </div>
             </div>
 
@@ -138,15 +228,16 @@
                         <h2>Congratulations!</h2>
                     </div>
                     <p class="question-text fs-4">You have successfully escaped the rooms by proving your English knowledge!</p>
+                    <p id="finalTime" class="fs-5 mt-3"></p>
                     <img src="https://placehold.co/400x300/e0e0e0/333?text=You+Escaped!" class="img-fluid rounded mt-3" alt="Imagem de comemoração">
+                    <button class="btn btn-unlock mt-4" onclick="restartGame()">Play Again</button>
                 </div>
             </div>
-
         </div>
     </main>
 
     <footer class="text-center py-3 mt-5">
-        <p class="mb-0">English Escape Room © 2025</p>
+        <p class="mb-0">Escape Room Adventures Team © 2025</p>
     </footer>
 
     <!-- Bootstrap JS -->
@@ -154,45 +245,107 @@
     
     <!-- Lógica do Jogo -->
     <script>
-        function checkAnswer(roomNumber) {
+        // Objeto com as respostas corretas para cada sala
+        const correctAnswers = {
+            1: ['goes', 'play', 'doesn’t'],
+            2: ['is watching', 'are running', 'am listening'],
+            3: ['went', 'played', 'did'],
+            4: ['was studying', 'were playing', 'was watching'],
+            5: ['hardware', 'download', 'password', 'log in']
+        };
+
+        let startTime; // Declara a variável do tempo, mas não inicia
+
+        function startGame() {
+            startTime = new Date(); // Inicia o contador AGORA
+
+            const startScreen = document.getElementById('startScreen');
+            const firstRoom = document.getElementById('room1');
+
+            // Animação de transição da tela de início para a primeira sala
+            startScreen.classList.remove('active');
+            setTimeout(() => {
+                startScreen.classList.add('d-none');
+                firstRoom.classList.remove('d-none');
+                setTimeout(() => firstRoom.classList.add('active'), 20);
+            }, 500);
+        }
+
+        function checkAnswers(roomNumber) {
             const form = document.querySelector(`#room${roomNumber} form`);
             const feedback = document.getElementById(`feedback${roomNumber}`);
-            const selectedOption = form.querySelector(`input[name="q${roomNumber}"]:checked`);
+            const selectedOptions = form.querySelectorAll('input[type="radio"]:checked');
+            const answersForRoom = correctAnswers[roomNumber];
 
-            if (!selectedOption) {
-                feedback.textContent = 'You must select an answer to proceed!';
+            if (selectedOptions.length < answersForRoom.length) {
+                feedback.textContent = 'You must answer all questions to proceed!';
                 feedback.className = 'feedback mt-3 alert alert-warning';
                 return;
             }
 
-            const isCorrect = selectedOption.value === 'correct';
+            let allCorrect = true;
+            selectedOptions.forEach((option, index) => {
+                if (option.value !== answersForRoom[index]) {
+                    allCorrect = false;
+                }
+            });
 
-            if (isCorrect) {
-                feedback.textContent = 'Correct! The door creaks open...';
+            if (allCorrect) {
+                feedback.textContent = 'All correct! The next room is unlocked...';
                 feedback.className = 'feedback mt-3 alert alert-success';
 
-                // Delay para o usuário ler o feedback antes de avançar
+                if (roomNumber === 5) {
+                    const endTime = new Date();
+                    const timeTaken = Math.round((endTime - startTime) / 1000); 
+                    const minutes = Math.floor(timeTaken / 60);
+                    const seconds = timeTaken % 60;
+                    document.getElementById('finalTime').textContent = `You escaped in ${minutes} minute(s) and ${seconds} second(s)!`;
+                }
+
                 setTimeout(() => {
                     const currentRoom = document.getElementById(`room${roomNumber}`);
-                    const nextRoomId = (roomNumber === 3) ? 'escaped' : `room${roomNumber + 1}`;
+                    const nextRoomId = (roomNumber === 5) ? 'escaped' : `room${roomNumber + 1}`;
                     const nextRoom = document.getElementById(nextRoomId);
 
                     currentRoom.classList.remove('active');
-                    // Espera a animação de fade-out terminar para trocar as salas
                     setTimeout(() => {
                         currentRoom.classList.add('d-none');
                         nextRoom.classList.remove('d-none');
-                        // Força um reflow para a animação de fade-in funcionar
                         setTimeout(() => nextRoom.classList.add('active'), 20);
                     }, 500);
 
                 }, 1500);
 
             } else {
-                feedback.textContent = 'Incorrect. The lock remains shut. Try again!';
+                feedback.textContent = 'Something is not right. Check your answers and try again!';
                 feedback.className = 'feedback mt-3 alert alert-danger';
             }
+        }
+
+        function restartGame() {
+            // Esconde todas as salas e a tela de sucesso
+            document.querySelectorAll('.room').forEach(room => {
+                room.classList.add('d-none');
+                room.classList.remove('active');
+            });
+
+            // Mostra a tela inicial novamente
+            const startScreen = document.getElementById('startScreen');
+            startScreen.classList.remove('d-none');
+            setTimeout(() => startScreen.classList.add('active'), 20);
+
+            // Reseta todos os formulários
+            document.querySelectorAll('form').forEach(form => {
+                form.reset();
+            });
+
+            // Limpa as mensagens de feedback
+            document.querySelectorAll('.feedback').forEach(feedback => {
+                feedback.textContent = '';
+                feedback.className = 'feedback mt-3';
+            });
         }
     </script>
 </body>
 </html>
+
